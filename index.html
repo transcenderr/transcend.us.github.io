@@ -14,27 +14,21 @@
   font-family: Arial, Helvetica, sans-serif;
 }
 
-html {
-  scroll-behavior: smooth;
-}
-
 body {
   background: #050b14;
   color: white;
   overflow-x: hidden;
 }
 
-/* ================= ANIMATED NETWORK BACKGROUND ================= */
+html { scroll-behavior: smooth; }
+
+/* ================= BACKGROUND ================= */
 #networkCanvas {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  inset: 0;
   z-index: -3;
 }
 
-/* glow layer */
 body::before {
   content: "";
   position: fixed;
@@ -46,7 +40,6 @@ body::before {
   z-index: -2;
 }
 
-/* subtle texture */
 body::after {
   content: "";
   position: fixed;
@@ -62,11 +55,11 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 1px solid rgba(255,255,255,0.08);
-  backdrop-filter: blur(12px);
   position: sticky;
   top: 0;
   background: rgba(5,11,20,0.6);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
   z-index: 10;
 }
 
@@ -78,11 +71,10 @@ header {
 }
 
 nav a {
+  margin-left: 25px;
   color: #e6f1ff;
   text-decoration: none;
-  margin-left: 25px;
   font-size: 14px;
-  transition: 0.3s;
 }
 
 nav a:hover {
@@ -91,38 +83,32 @@ nav a:hover {
 
 /* ================= HERO ================= */
 .hero {
-  padding: 120px 8% 80px;
+  padding: 120px 8% 70px;
   max-width: 1000px;
 }
 
 .hero h1 {
-  font-size: 58px;
+  font-size: 56px;
   line-height: 1.1;
   margin-bottom: 20px;
 }
 
 .hero p {
-  font-size: 18px;
   color: #cbd5e1;
+  font-size: 18px;
   line-height: 1.8;
-  margin-bottom: 35px;
-  max-width: 800px;
+  max-width: 850px;
+  margin-bottom: 30px;
 }
 
 .button {
   display: inline-block;
-  padding: 14px 28px;
+  padding: 14px 26px;
   border-radius: 999px;
-  background: linear-gradient(90deg, #0ea5e9, #22d3ee);
+  background: linear-gradient(90deg,#0ea5e9,#22d3ee);
   color: #001018;
   font-weight: bold;
   text-decoration: none;
-  transition: 0.3s;
-}
-
-.button:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 0 20px rgba(34,211,238,0.35);
 }
 
 /* ================= SECTIONS ================= */
@@ -132,48 +118,20 @@ section {
 
 .section-title {
   font-size: 38px;
-  margin-bottom: 20px;
   color: #7dd3fc;
+  margin-bottom: 20px;
 }
 
 .section-text {
-  max-width: 900px;
+  max-width: 950px;
   color: #cbd5e1;
   line-height: 1.9;
   font-size: 17px;
 }
 
-/* ================= SERVICES ================= */
-.services-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 20px;
-  margin-top: 40px;
-}
-
-.card {
-  background: rgba(255,255,255,0.05);
-  border: 1px solid rgba(0,180,255,0.15);
-  border-radius: 18px;
-  padding: 25px;
-  backdrop-filter: blur(12px);
-  transition: 0.3s;
-}
-
-.card:hover {
-  transform: translateY(-6px);
-  border-color: rgba(56,189,248,0.5);
-  box-shadow: 0 0 25px rgba(0,140,255,0.15);
-}
-
-.card h3 {
-  margin-bottom: 12px;
-}
-
-/* ================= CONTACT ================= */
-.contact-wrapper {
+/* ================= ABOUT BOX ================= */
+.about-box {
   margin-top: 30px;
-  max-width: 650px;
   background: rgba(255,255,255,0.05);
   border: 1px solid rgba(0,180,255,0.2);
   border-radius: 18px;
@@ -181,11 +139,58 @@ section {
   backdrop-filter: blur(12px);
 }
 
-.contact-email {
-  margin-bottom: 20px;
+/* ================= SERVICES ================= */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(240px,1fr));
+  gap: 20px;
+  margin-top: 40px;
 }
 
-.contact-email a {
+.card {
+  padding: 22px;
+  border-radius: 16px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(0,180,255,0.15);
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(56,189,248,0.5);
+}
+
+.card h3 {
+  color: #e6f1ff;
+}
+
+/* ================= SERVICE DETAIL PANEL ================= */
+#serviceDetail {
+  margin-top: 40px;
+  max-width: 900px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(0,180,255,0.2);
+  padding: 25px;
+  border-radius: 16px;
+  display: none;
+  backdrop-filter: blur(12px);
+  color: #cbd5e1;
+  line-height: 1.8;
+}
+
+/* ================= CONTACT ================= */
+.contact-wrapper {
+  margin-top: 30px;
+  max-width: 650px;
+  padding: 30px;
+  border-radius: 18px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(0,180,255,0.2);
+  backdrop-filter: blur(12px);
+}
+
+.contact-wrapper a {
   color: #38bdf8;
   text-decoration: none;
 }
@@ -194,6 +199,7 @@ form {
   display: flex;
   flex-direction: column;
   gap: 12px;
+  margin-top: 15px;
 }
 
 input, textarea {
@@ -206,9 +212,9 @@ input, textarea {
 
 button {
   padding: 12px;
-  border: none;
   border-radius: 10px;
-  background: linear-gradient(90deg, #0ea5e9, #22d3ee);
+  border: none;
+  background: linear-gradient(90deg,#0ea5e9,#22d3ee);
   font-weight: bold;
   cursor: pointer;
 }
@@ -218,7 +224,6 @@ footer {
   text-align: center;
   padding: 40px;
   color: #64748b;
-  font-size: 13px;
   border-top: 1px solid rgba(255,255,255,0.06);
 }
 </style>
@@ -237,39 +242,70 @@ footer {
   </nav>
 </header>
 
+<!-- HERO -->
 <section class="hero">
-  <h1>Bridging Markets, Technology, and Global Partnerships</h1>
+  <h1>Helping Global Companies Expand Into North America</h1>
   <p>
-    Transcend Group helps businesses navigate cross-border opportunities between Southeast Asia and North America.
+    Transcend Group is a consulting firm focused on helping startups, founders,
+    and international companies successfully enter and scale within the North American market.
   </p>
   <a class="button" href="#contact">Start Inquiry</a>
 </section>
 
+<!-- ABOUT -->
 <section id="about">
-  <h2 class="section-title">About</h2>
-  <p class="section-text">
-    We support global expansion through strategy, analytics, and partnerships across markets and industries.
-  </p>
+  <h2 class="section-title">About Transcend Group</h2>
+
+  <div class="about-box">
+    <p class="section-text">
+      Transcend Group is a cross-border consulting practice that supports startups,
+      technology companies, and international businesses looking to expand into North America.
+      <br><br>
+      We specialize in helping organizations navigate the complexities of entering a new market—
+      including business strategy, partnership development, operational setup, and market positioning.
+      <br><br>
+      Our role is to bridge the gap between regions by combining business insight,
+      data-driven analysis, and real-world understanding of how companies scale in competitive environments.
+      <br><br>
+      Whether you are a startup validating your first international expansion or an established company
+      exploring North American growth, we help you move from idea → strategy → execution.
+    </p>
+  </div>
 </section>
 
+<!-- SERVICES -->
 <section id="services">
   <h2 class="section-title">Services</h2>
 
   <div class="services-grid">
-    <div class="card"><h3>Market Entry Strategy</h3></div>
-    <div class="card"><h3>Technology Partnerships</h3></div>
-    <div class="card"><h3>Business Analysis</h3></div>
-    <div class="card"><h3>Cross-Border Advisory</h3></div>
+
+    <div class="card" onclick="showService('market')">
+      <h3>Market Entry Strategy</h3>
+    </div>
+
+    <div class="card" onclick="showService('partnership')">
+      <h3>Technology Partnerships</h3>
+    </div>
+
+    <div class="card" onclick="showService('analysis')">
+      <h3>Business Analysis</h3>
+    </div>
+
+    <div class="card" onclick="showService('advisory')">
+      <h3>Cross-Border Advisory</h3>
+    </div>
+
   </div>
+
+  <div id="serviceDetail"></div>
 </section>
 
+<!-- CONTACT -->
 <section id="contact">
   <h2 class="section-title">Contact</h2>
 
   <div class="contact-wrapper">
-    <p class="contact-email">
-      Email: <a href="mailto:contact@transcendgroup.us">contact@transcendgroup.us</a>
-    </p>
+    <p>Email: <a href="mailto:contact@transcendgroup.us">contact@transcendgroup.us</a></p>
 
     <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
       <input type="text" name="name" placeholder="Your Name" required>
@@ -280,75 +316,104 @@ footer {
   </div>
 </section>
 
-<footer>
-  © 2026 Transcend Group
-</footer>
+<footer>© 2026 Transcend Group</footer>
 
 <script>
+/* ================= SERVICE CONTENT ================= */
+const serviceData = {
+  market: `
+    <strong>Market Entry Strategy</strong><br><br>
+    We help companies understand how to enter the North American market effectively.
+    This includes market research, competitive positioning, pricing strategy,
+    and identifying the right entry points for growth.<br><br>
+    Our goal is to reduce uncertainty and create a structured roadmap from early expansion planning to execution.
+  `,
+  partnership: `
+    <strong>Technology Partnerships</strong><br><br>
+    We connect companies with potential technology partners, vendors, and strategic collaborators
+    across North America.<br><br>
+    This includes identifying alignment opportunities, facilitating introductions,
+    and supporting early-stage partnership discussions.
+  `,
+  analysis: `
+    <strong>Business Analysis</strong><br><br>
+    We provide data-driven insights to support decision-making during expansion.
+    This includes financial modeling, market evaluation, and operational benchmarking.<br><br>
+    Our analysis helps leadership teams make informed, lower-risk strategic decisions.
+  `,
+  advisory: `
+    <strong>Cross-Border Advisory</strong><br><br>
+    We support companies in navigating cultural, operational, and strategic differences
+    when entering new markets.<br><br>
+    This includes communication strategy, stakeholder alignment, and execution planning.
+  `
+};
+
+function showService(key) {
+  const box = document.getElementById("serviceDetail");
+  box.style.display = "block";
+  box.innerHTML = serviceData[key];
+}
+
 /* ================= NETWORK ANIMATION ================= */
 const canvas = document.getElementById("networkCanvas");
 const ctx = canvas.getContext("2d");
 
-let width, height;
+let w,h;
 let points = [];
 
-function resize() {
-  width = canvas.width = window.innerWidth;
-  height = canvas.height = window.innerHeight;
+function resize(){
+  w = canvas.width = window.innerWidth;
+  h = canvas.height = window.innerHeight;
 }
-
 window.addEventListener("resize", resize);
 resize();
 
-/* create nodes */
-for (let i = 0; i < 80; i++) {
+for(let i=0;i<70;i++){
   points.push({
-    x: Math.random() * window.innerWidth,
-    y: Math.random() * window.innerHeight,
-    vx: (Math.random() - 0.5) * 0.6,
-    vy: (Math.random() - 0.5) * 0.6
+    x: Math.random()*w,
+    y: Math.random()*h,
+    vx:(Math.random()-0.5)*0.6,
+    vy:(Math.random()-0.5)*0.6
   });
 }
 
-function draw() {
-  ctx.clearRect(0, 0, width, height);
+function animate(){
+  ctx.clearRect(0,0,w,h);
 
-  /* draw connections */
-  for (let i = 0; i < points.length; i++) {
-    for (let j = i + 1; j < points.length; j++) {
-      let dx = points[i].x - points[j].x;
-      let dy = points[i].y - points[j].y;
-      let dist = Math.sqrt(dx * dx + dy * dy);
+  for(let i=0;i<points.length;i++){
+    for(let j=i+1;j<points.length;j++){
+      let dx=points[i].x-points[j].x;
+      let dy=points[i].y-points[j].y;
+      let d=Math.sqrt(dx*dx+dy*dy);
 
-      if (dist < 140) {
-        ctx.strokeStyle = "rgba(56,189,248,0.15)";
-        ctx.lineWidth = 1;
+      if(d<140){
+        ctx.strokeStyle="rgba(56,189,248,0.15)";
         ctx.beginPath();
-        ctx.moveTo(points[i].x, points[i].y);
-        ctx.lineTo(points[j].x, points[j].y);
+        ctx.moveTo(points[i].x,points[i].y);
+        ctx.lineTo(points[j].x,points[j].y);
         ctx.stroke();
       }
     }
   }
 
-  /* draw nodes */
-  for (let p of points) {
-    ctx.fillStyle = "rgba(125,211,252,0.7)";
+  for(let p of points){
+    ctx.fillStyle="rgba(125,211,252,0.7)";
     ctx.beginPath();
-    ctx.arc(p.x, p.y, 2, 0, Math.PI * 2);
+    ctx.arc(p.x,p.y,2,0,Math.PI*2);
     ctx.fill();
 
-    p.x += p.vx;
-    p.y += p.vy;
+    p.x+=p.vx;
+    p.y+=p.vy;
 
-    if (p.x < 0 || p.x > width) p.vx *= -1;
-    if (p.y < 0 || p.y > height) p.vy *= -1;
+    if(p.x<0||p.x>w)p.vx*=-1;
+    if(p.y<0||p.y>h)p.vy*=-1;
   }
 
-  requestAnimationFrame(draw);
+  requestAnimationFrame(animate);
 }
 
-draw();
+animate();
 </script>
 
 </body>
